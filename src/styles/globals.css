@@ -1,5 +1,6 @@
 html,
 body {
+  /* background: linear-gradient(90deg, rgba(48,36,19,1) 0%, rgba(43,33,15,1) 35%, rgba(33,24,9,1) 100%); */
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
