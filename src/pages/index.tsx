@@ -24,11 +24,9 @@ export default function Home() {
           </tr>
           <tr>
             <td>
-              {/* <Botao estilo={"p-2 my-6 w-full rounded-md bg-gray-800 text-white"}>               
-              </Botao> */}
-              <button className={"p-2 my-6 w-full rounded-md bg-gray-800 text-white"}>
-                Login
-              </button>
+              <Botao estilo={"p-2 my-6 w-full rounded-md bg-gray-800 text-white"}
+              texto={"Login"}>               
+              </Botao>
             </td>
           </tr>
         </table>

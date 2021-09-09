@@ -1,17 +1,17 @@
 export default function Tabela(props){
     return(
-        <table className="bg-red-400 w-full">
-            <thead>
+        <table className="text-black w-full">
+            <thead className="bg-gray-600 text-white">
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Estado Civil</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="text-center">
                 <tr>
                     <td>1</td>
-                    <td>Mauricio</td>
+                    <td>Mauricio Aparecido Gabriel Dias</td>
                     <td>Casado</td>
                 </tr>
             </tbody>
