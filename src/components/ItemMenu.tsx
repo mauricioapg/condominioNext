@@ -1,9 +1,20 @@
-export default function ItemMenu(props) {
+import Botao from './Botao'
+
+interface PropsItemMenu {
+    className: String
+    texto: String
+    icone?: any
+    onClick: any
+}
+
+export default function ItemMenu(props: PropsItemMenu) {
     return (
-        <div className={"text-center hover:bg-gray-900"}>
-            <a href={props.destino}>
+        <div className={`${props.className}`}>
+            <Botao className={`${props.className}`}
+                onClick={() => { props.onClick }}>
+                {props.icone}
                 {props.texto}
-            </a>
+            </Botao>
         </div>
     )
 }

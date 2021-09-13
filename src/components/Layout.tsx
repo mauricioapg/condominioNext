@@ -1,14 +1,18 @@
 import Link from 'next/Link'
 import Menu from './Menu'
-import ItemMenu from './ItemMenu'
 
-export default function Layout(props) {
+interface PropsLayout{
+    children: any
+    titulo: String
+}
+
+export default function Layout(props: PropsLayout) {
     return (
         <div className={`
             flex flex-col w-full h-16
             bg-gray-800 text-white
         `}>
-            <div className={"flex flex-row justify-between my-3 mx-10"}>
+            <div className={`flex flex-row justify-between mx-6 my-3`}>
                 <img className={"h-12"}
                     src="https://engelux.com.br/img/enterprises/0019/logomarca-stamp.png" alt="logo" />
                 <h1 className={"font-bold text-2xl my-1 mx-10"}>{props.titulo}</h1>
@@ -17,13 +21,9 @@ export default function Layout(props) {
                 </div>
             </div>
             <div className="flex">
-                <div>
-                    <Menu estilo={"bg-gray-800"}>
-                        <ItemMenu destino="/" texto="Cadastrar Morador"></ItemMenu>
-                        <ItemMenu destino="/" texto="Lista de Moradores"></ItemMenu>
-                    </Menu>
-                </div>
-                <div className="flex w-full">
+                <Menu className={`bg-gray-800 w-3/12`}>
+                </Menu>
+                <div className="flex flex-col ml-3 mr-4 w-full">
                     {props.children}
                 </div>
             </div>

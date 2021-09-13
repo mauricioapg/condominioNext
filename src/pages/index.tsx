@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Botao from '../components/Botao'
 import Link from 'next/Link'
 
 export default function Home() {
@@ -23,10 +22,11 @@ export default function Home() {
             </td>
           </tr>
           <tr>
-            <td>
-              <Botao estilo={"p-2 my-6 w-full rounded-md bg-gray-800 text-white"}
-              texto={"Login"}>               
-              </Botao>
+            <td className={`p-2 my-6 w-full rounded-md bg-gray-800 text-white
+            flex flex-row justify-center`}>
+              <Link href="/inicio">
+                Login
+              </Link>
             </td>
           </tr>
         </table>
