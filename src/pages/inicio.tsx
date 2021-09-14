@@ -3,54 +3,63 @@ import Tabela from '../components/Tabela'
 import Formulario from '../components/Fomulario'
 import PaginaInicial from '../components/PaginaInicial'
 import Morador from '../core/Morador'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Botao from '../components/Botao'
+import MoradorRepositorio from '../core/MoradorRepositorio'
+import ColecaoMorador from '../backend/db/ColecaoMoradores'
+import useMoradores from '../hooks/useMoradores'
 
 export default function Inicio() {
 
-    const [morador, setMorador] = useState<Morador>(Morador.Vazio)
-    const [visivel, setVisivel] = useState<'tabela' | 'formulario' | 'inicio'>('inicio') //exibe a tabela ou o form
-    const [titulo, setTitulo] = useState("")
-
-    const arrayMoradores = [
-        new Morador('Mauricio', 'Casado(a)', '1'),
-        new Morador('Lindsay', 'Casado(a)', '2'),
-        new Morador('Mônica', 'Casado(a)', '3'),
-        new Morador('Marcelo', 'Casado(a)', '4')
-    ]
-
-    function moradorSelecionado(morador: Morador) {
-        setTitulo("teste")
-        setMorador(morador)
-        console.log(`${morador.nome} foi selecionado...`)
-        //setVisivel('formulario')
-    }
-
-    function moradorExcluido(morador: Morador) {
-        console.log(`Excluir... ${morador.nome}`)
-    }
+    //Toda a lógica implementada no hooks useClientes está sendo importada aqui
+    const {
+        tabelaVisivel,
+        formularioVisivel,
+        inicioVisivel,
+        morador,
+        moradores,
+        exibirTabela,
+        exibirInicio,
+        adicionarMorador,
+        selecionarMorador,
+        salvarMorador,
+        excluirMorador,
+    } = useMoradores()
 
     return (
         <div className={"flex flex-col"}>
             <Layout titulo={"Página Inicial"}>
                 {
-                    visivel === 'tabela' ?
+                    tabelaVisivel ?
                         (
                             <>
+                                <div className={"flex justify-start mb-2"}>
+                                    <Botao className={`bg-gradient-to-tr from-green-800 to-green-600
+            rounded-lg py-2 px-4 text-white ml-2`}
+                                        onClick={adicionarMorador}>
+                                        Novo Morador
+                                    </Botao>
+                                </div>
                                 <Tabela
-                                    moradores={arrayMoradores}
-                                    moradorSelecionado={moradorSelecionado}
-                                    moradorExcluido={moradorExcluido}
+                                    moradores={moradores}
+                                    moradorSelecionado={selecionarMorador}
+                                    moradorExcluido={excluirMorador}
                                     alturaLinha={"h-10"} />
                             </>
                         ) :
-                        visivel === 'formulario' ?
+                        formularioVisivel ?
                             (
                                 <>
                                     <Formulario
-                                        morador={morador} />
+                                        morador={morador}
+                                        moradorMudou={salvarMorador}
+                                        cancelar={exibirTabela} />
                                 </>
                             ) :
-                            <PaginaInicial className={"text-gray-800"}/>
+                            inicioVisivel ?
+                                (
+                                    <PaginaInicial className={"text-gray-800"} />
+                                ) : false
                 }
             </Layout>
         </div>
