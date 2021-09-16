@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function UseTabelaOuFormulario(){
 
-    const [visivel, setVisivel] = useState<'tabela'| 'formulario' | 'inicio'>('formulario')
+    const [visivel, setVisivel] = useState<'tabela'| 'formulario' | 'inicio'>('tabela')
 
     const exibirTabela = () => setVisivel('tabela')
     const exibirFormulario = () => setVisivel('formulario')

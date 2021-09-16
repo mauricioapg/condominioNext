@@ -1,4 +1,4 @@
-import BotaoAcoes from '../components/Botao'
+import BotaoAcoes from './Botao'
 import { IconeEdicao, IconeLixeira } from './Icones'
 import Morador from '../core/Morador'
 

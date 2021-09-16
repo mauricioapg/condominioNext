@@ -4,9 +4,8 @@ import Formulario from '../components/Fomulario'
 import PaginaInicial from '../components/PaginaInicial'
 import Morador from '../core/Morador'
 import { useEffect, useState } from 'react'
+import Router from 'next/router'
 import Botao from '../components/Botao'
-import MoradorRepositorio from '../core/MoradorRepositorio'
-import ColecaoMorador from '../backend/db/ColecaoMoradores'
 import useMoradores from '../hooks/useMoradores'
 
 export default function Inicio() {
@@ -25,6 +24,13 @@ export default function Inicio() {
         salvarMorador,
         excluirMorador,
     } = useMoradores()
+
+    useEffect(() => {
+        const {pathname} = Router
+        if(pathname == '/' ){
+            Router.push('/inicio')
+        }
+      });
 
     return (
         <div className={"flex flex-col"}>

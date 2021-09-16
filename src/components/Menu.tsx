@@ -19,12 +19,12 @@ export default function Menu(props: PropsMenu) {
             flex justify-start ml-1`}
                 texto="Início"
                 icone={IconeLista}
-                onClick={exibirInicio} />
+                onClick={() => console.log('item de menu início')} />
             <ItemMenu className={`hover:bg-gray-600 py-3
             flex justify-start ml-1`}
                 texto="Lista de Moradores"
                 icone={IconeLista}
-                onClick={exibirTabela} />
+                onClick={console.log('item de menu lista')} />
         </div>
     )
 }
