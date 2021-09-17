@@ -1,12 +1,5 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/Link'
-import { useEffect, useState } from 'react'
-import ColecaoMorador from '../backend/db/ColecaoMoradores'
-import MoradorRepositorio from '../core/MoradorRepositorio'
-import useMoradores from '../hooks/useMoradores'
-import Paths from '../core/path'
-import Router from 'next/router'
+import { useState } from 'react'
 
 export default function Home() {
 
@@ -83,7 +76,7 @@ export default function Home() {
             <td className={`p-2 my-6 w-full rounded-md bg-gray-800 text-white
             flex flex-row justify-center`}>
               <Link href={destino}>
-                <a onClickCapture={() => 
+                <a onClickCapture={() =>
                 verificarUsuario()
                   ? setDestino('inicio')
                   : alert('Usuário e/ou senha inválidos!')

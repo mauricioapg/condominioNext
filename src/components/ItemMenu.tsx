@@ -1,20 +1,20 @@
-import Botao from './Botao'
+import Link from 'next/Link'
+import { IconeLista } from './Icones'
 
-interface PropsItemMenu {
+interface PropsItem{
     className: String
     texto: String
-    icone?: any
-    onClick: any
+    icone?: any 
+    destino:  String
 }
 
-export default function ItemMenu(props: PropsItemMenu) {
+export default function ItemMenu(props: PropsItem) {
     return (
         <div className={`${props.className}`}>
-            <Botao className={`${props.className}`}
-                onClick={() => { props.onClick }}>
-                {props.icone}
+            {props.icone}
+            <Link href={`${props.destino}`}>
                 {props.texto}
-            </Botao>
+            </Link>
         </div>
     )
 }

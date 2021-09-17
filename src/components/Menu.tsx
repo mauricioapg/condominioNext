@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import ItemMenu from '../components/ItemMenu'
 import useMoradores from '../hooks/useMoradores'
 import UseTabelaOuFormulario from '../hooks/useTabelaOuFormulario'
-import { IconeAdicionar, IconeLista } from './Icones'
+import { IconeInicio, IconeLista } from './Icones'
+import ItemMenu from './ItemMenu'
 
 interface PropsMenu {
     children: any
@@ -11,20 +11,18 @@ interface PropsMenu {
 
 export default function Menu(props: PropsMenu) {
 
-    const { exibirTabela, exibirInicio } = UseTabelaOuFormulario()
-
     return (
         <div className={`${props.className}`}>
             <ItemMenu className={`hover:bg-gray-600 py-3
-            flex justify-start ml-1`}
+            flex justify-start ml-2`}
                 texto="Início"
-                icone={IconeLista}
-                onClick={() => console.log('item de menu início')} />
+                icone={IconeInicio}
+                destino={'inicio'} />
             <ItemMenu className={`hover:bg-gray-600 py-3
-            flex justify-start ml-1`}
+            flex justify-start ml-2`}
                 texto="Lista de Moradores"
                 icone={IconeLista}
-                onClick={console.log('item de menu lista')} />
+                destino={'moradores'} />
         </div>
     )
 }
