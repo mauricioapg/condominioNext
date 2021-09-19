@@ -2,6 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/moradores": "pages/moradores.js",
-  "/inicio": "pages/inicio.js"
+  "/": "pages/index.js",
+  "/inicio": "pages/inicio.js",
+  "/moradores": "pages/moradores.js"
 }
